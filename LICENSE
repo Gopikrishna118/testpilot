@@ -1,0 +1,29 @@
+Copyright (c) 2026 Gopi / Finastra (Internal Use)
+
+INTERNAL USE — ALL RIGHTS RESERVED — CONFIDENTIAL
+
+This software and all associated documentation, prompts, outputs, and materials
+("the Work") are the confidential and proprietary property of Gopi and/or
+Finastra, as applicable.
+
+The Work is provided solely for internal evaluation and proof-of-concept purposes
+within Finastra. No part of the Work may be:
+
+  - Reproduced, copied, or distributed outside of Finastra without prior written
+    permission from the owner
+  - Used to train, fine-tune, or evaluate any machine learning model
+  - Shared with external parties, vendors, or third-party service providers
+    without explicit written authorization
+  - Published, open-sourced, or made available to the public in any form
+
+THE WORK IS PROVIDED "AS IS" FOR INTERNAL EVALUATION PURPOSES ONLY, WITHOUT
+WARRANTY OF ANY KIND, EXPRESS OR IMPLIED.
+
+TODO (Gopi): Confirm the appropriate license terms with Finastra Legal before
+any external sharing, open-sourcing, or productionization of this work. In
+particular, confirm:
+  1. Ownership of AI-generated outputs produced by Claude Sonnet 4.6
+  2. Compliance with Finastra's IP policy for internally developed tools
+  3. Whether Anthropic's terms of service permit use in Finastra's banking context
+
+Contact: gopikrishnamasanam229@gmail.com
