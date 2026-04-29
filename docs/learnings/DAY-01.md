@@ -1,6 +1,6 @@
 ---
 file: DAY-01.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
@@ -15,7 +15,7 @@ status: DRAFT
 
 ## Plan for Today
 
-- [ ] Create qa-forge project scaffold (all folders + markdown files)
+- [ ] Create testpilot project scaffold (all folders + markdown files)
 - [ ] Set up git repository with initial commit
 - [ ] Review SECURITY.md and RISK.md for completeness
 - [ ] Begin testcase-gen backend scaffold (if time permits)

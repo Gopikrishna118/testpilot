@@ -1,13 +1,13 @@
 ---
 file: PITCH-DECK.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# PITCH-DECK — QA-Forge Manager Presentation
+# PITCH-DECK — TestPilot Manager Presentation
 
 > **Usage:** Use this as your slide outline. Each "## Slide N" section maps to one presentation slide. Transfer content to PowerPoint/Google Slides on Day 9.
 
@@ -15,7 +15,7 @@ status: DRAFT
 
 ## Slide 1: Title
 
-**Headline:** QA-Forge: AI-Augmented QA Toolkit
+**Headline:** TestPilot: AI-Augmented QA Toolkit
 
 **Subtitle:** A 10-Day PoC Sprint — Claude Sonnet 4.6 × Finastra QA Workflows
 

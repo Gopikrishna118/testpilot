@@ -1,13 +1,13 @@
 ---
 file: ROI-SHEET.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# ROI-SHEET — QA-Forge Return on Investment
+# ROI-SHEET — TestPilot Return on Investment
 
 > **Instructions:** Fill in all TODO cells on Day 2 (2026-04-30) by timing yourself on real (sanitized) tasks with a stopwatch. Do not estimate — use measured values. This sheet will be the backbone of Slide 7 in the pitch.
 
@@ -92,4 +92,4 @@ Payback period         = Investment / Monthly savings = TODO months
 |------|-------------|----------------------|-------|
 | TODO | TODO | TODO USD | |
 | TODO | TODO | TODO USD | |
-| QA-Forge (this PoC) | Claude API + internal dev | TODO USD | Built for Finastra-specific workflows |
+| TestPilot (this PoC) | Claude API + internal dev | TODO USD | Built for Finastra-specific workflows |

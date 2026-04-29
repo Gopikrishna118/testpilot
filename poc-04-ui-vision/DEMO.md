@@ -1,6 +1,6 @@
 ---
 file: DEMO.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
@@ -20,7 +20,7 @@ status: DRAFT
 > "Here's a synthetic loan application form mockup. No requirements, no test plan. Just the screen. [Display screenshot.]"
 
 **Demo Action (20–60s):**
-> [Upload screenshot to QA-Forge UI Vision → click Analyse]
+> [Upload screenshot to TestPilot UI Vision → click Analyse]
 > "Claude is identifying the form fields, buttons, validation zones, compliance-sensitive inputs. It's generating scenarios for each."
 
 **Result (60–75s):**
@@ -76,7 +76,7 @@ status: DRAFT
 If vision analysis fails:
 1. Show the pre-generated JSON output (`outputs/` pre-run file)
 2. Display screenshot and JSON side by side on screen
-3. Say: *"Here's the analysis QA-Forge produced when I ran this earlier. [Point to best scenario.] This level of coverage from a screenshot in under 10 seconds."*
+3. Say: *"Here's the analysis TestPilot produced when I ran this earlier. [Point to best scenario.] This level of coverage from a screenshot in under 10 seconds."*
 
 ---
 

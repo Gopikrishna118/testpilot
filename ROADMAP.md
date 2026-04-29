@@ -1,13 +1,13 @@
 ---
 file: ROADMAP.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# ROADMAP — QA-Forge 10-Day PoC Sprint
+# ROADMAP — TestPilot 10-Day PoC Sprint
 
 ## 10-Day Plan
 

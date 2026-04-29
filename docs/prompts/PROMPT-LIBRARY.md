@@ -1,13 +1,13 @@
 ---
 file: PROMPT-LIBRARY.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# PROMPT-LIBRARY — QA-Forge Master Prompt Index
+# PROMPT-LIBRARY — TestPilot Master Prompt Index
 
 > All prompts are versioned. Use `vMAJOR.MINOR` format. Bump MINOR for refinements that don't change output schema. Bump MAJOR for structural changes to input/output format or role.
 

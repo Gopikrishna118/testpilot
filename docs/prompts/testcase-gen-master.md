@@ -1,6 +1,6 @@
 ---
 file: testcase-gen-master.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29

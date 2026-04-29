@@ -1,13 +1,13 @@
 ---
 file: README.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# QA-Forge — AI-Augmented QA Toolkit (PoC)
+# TestPilot — AI-Augmented QA Toolkit (PoC)
 
 > Empowering Finastra QA engineers with Claude-powered automation — faster test cases, smarter defects, zero compliance risk.
 
@@ -17,7 +17,7 @@ status: DRAFT
 
 ## What
 
-QA-Forge is a 4-PoC sprint demonstrating how Claude Sonnet 4.6 can augment QA workflows in a banking domain context.
+TestPilot is a 4-PoC sprint demonstrating how Claude Sonnet 4.6 can augment QA workflows in a banking domain context.
 
 | # | PoC | Description |
 |---|-----|-------------|

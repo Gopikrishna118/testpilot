@@ -1,13 +1,13 @@
 ---
 file: DEMO-SCRIPT.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# DEMO-SCRIPT — QA-Forge Live Demo Narration
+# DEMO-SCRIPT — TestPilot Live Demo Narration
 
 > Each section is a 90-second script: Hook → Problem → Demo Action → Result → Impact.
 > Practise until you can deliver each without reading. Record screen + voice on the designated day.
@@ -25,7 +25,7 @@ status: DRAFT
 > "Here's a typical KYC onboarding user story from our backlog. [Show input on screen.] Right now, turning this into a structured test case Excel takes me about [TODO: Y minutes]. Let's see what Claude does with it."
 
 **Demo Action (20–60s):**
-> "I paste the story into QA-Forge. Hit Generate. [Pause — watch output stream.] It's identifying the acceptance criteria, deriving positive and negative scenarios, formatting each as a test case with ID, steps, and expected results."
+> "I paste the story into TestPilot. Hit Generate. [Pause — watch output stream.] It's identifying the acceptance criteria, deriving positive and negative scenarios, formatting each as a test case with ID, steps, and expected results."
 
 **Result (60–75s):**
 > "In [TODO: Z seconds], I have [TODO: N] test cases — all structured, all traceable to the story. I download the Excel. [Open Excel.] Look at the columns: Test ID, Scenario, Preconditions, Steps, Expected Result, Priority. Human review still required — but the heavy lifting is done."
@@ -60,13 +60,13 @@ status: DRAFT
 ### 90-Second Narration Script
 
 **Hook (0–10s):**
-> "Raising a good JIRA defect takes [TODO: X minutes] when done properly — environment, steps to reproduce, severity, expected vs. actual. Most engineers shortcut it. QA-Forge doesn't."
+> "Raising a good JIRA defect takes [TODO: X minutes] when done properly — environment, steps to reproduce, severity, expected vs. actual. Most engineers shortcut it. TestPilot doesn't."
 
 **Problem (10–20s):**
 > "Here's a defect I found in the payment flow. [Show freetext description on screen.] In 2 sentences, I've described what went wrong. Watch what happens."
 
 **Demo Action (20–60s):**
-> "I paste my description into QA-Forge Defect Creator. Hit Create. [Pause.] Claude is structuring the summary, writing reproducible steps, inferring severity, adding environment metadata. It's calling the JIRA API now."
+> "I paste my description into TestPilot Defect Creator. Hit Create. [Pause.] Claude is structuring the summary, writing reproducible steps, inferring severity, adding environment metadata. It's calling the JIRA API now."
 
 **Result (60–75s):**
 > "[Open JIRA in browser.] The ticket is live. [Scroll through ticket.] Complete summary, clear steps to reproduce, severity set to [TODO], labels applied, component assigned. Ready for triage."
@@ -91,7 +91,7 @@ status: DRAFT
 ### Recovery Script (If Demo Fails)
 
 > **TODO (Gopi):** If JIRA API fails — show pre-created ticket screenshot. If Claude API fails — show pre-generated JSON output. Script:
-> "The JIRA connection dropped — let me show you the structured output that would have been created. [Show JSON or screenshot.] This is the exact payload QA-Forge generated; in a live session it would be in JIRA right now."
+> "The JIRA connection dropped — let me show you the structured output that would have been created. [Show JSON or screenshot.] This is the exact payload TestPilot generated; in a live session it would be in JIRA right now."
 
 ---
 ---
@@ -107,7 +107,7 @@ status: DRAFT
 > "Here's a Selenium test for our login flow. [Show Selenium code.] Python, WebDriver, old-style locators. Migrating this manually means rewriting every selector, every wait, every assertion."
 
 **Demo Action (20–60s):**
-> "I drop this file into QA-Forge Converter. Hit Convert. [Pause — watch output.] Claude is analysing the structure, mapping Selenium APIs to Playwright equivalents, modernising the locators, converting waits to async/await."
+> "I drop this file into TestPilot Converter. Hit Convert. [Pause — watch output.] Claude is analysing the structure, mapping Selenium APIs to Playwright equivalents, modernising the locators, converting waits to async/await."
 
 **Result (60–75s):**
 > "Output Playwright script. [Open file.] Notice: `page.locator()` instead of `find_element`, `await expect()` for assertions, proper `async` structure. I run it — [TODO: confirm it executes] — green."
@@ -132,7 +132,7 @@ status: DRAFT
 ### Recovery Script (If Demo Fails)
 
 > **TODO (Gopi):** Pre-run conversion and save the `.ts` output. Show side-by-side comparison (Selenium input left, Playwright output right) as a static slide. Script:
-> "Let me show you the conversion I ran earlier. [Open side-by-side.] On the left, the Selenium original. On the right, the Playwright output QA-Forge produced."
+> "Let me show you the conversion I ran earlier. [Open side-by-side.] On the left, the Selenium original. On the right, the Playwright output TestPilot produced."
 
 ---
 ---
@@ -148,7 +148,7 @@ status: DRAFT
 > "Here's a mockup of our loan application form. [Show screenshot.] A new QA engineer sitting down with this screen might miss edge cases in [TODO: field name], validation on [TODO: field], or the flow when [TODO: scenario]. Let's see what Claude sees."
 
 **Demo Action (20–60s):**
-> "I upload the screenshot to QA-Forge UI Vision. Hit Analyse. [Pause.] Claude is identifying UI components: form fields, dropdowns, buttons, validation zones. It's generating test scenarios for each."
+> "I upload the screenshot to TestPilot UI Vision. Hit Analyse. [Pause.] Claude is identifying UI components: form fields, dropdowns, buttons, validation zones. It's generating test scenarios for each."
 
 **Result (60–75s):**
 > "Output: [TODO: N] test scenarios. [Scroll through JSON output or rendered list.] Look at scenario 4 — [TODO: quote a good unexpected scenario]. That's an edge case I'd likely have missed in manual exploratory testing."
@@ -173,4 +173,4 @@ status: DRAFT
 ### Recovery Script (If Demo Fails)
 
 > **TODO (Gopi):** Pre-run analysis and save JSON output. Show screenshot + JSON side-by-side as static slide. Script:
-> "Let me show you what QA-Forge produced when I ran this earlier. [Show screenshot + JSON.] [TODO: highlight best scenario]. This is the output that would have appeared live."
+> "Let me show you what TestPilot produced when I ran this earlier. [Show screenshot + JSON.] [TODO: highlight best scenario]. This is the output that would have appeared live."

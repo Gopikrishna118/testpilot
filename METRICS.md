@@ -1,13 +1,13 @@
 ---
 file: METRICS.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# METRICS — QA-Forge Success Criteria & ROI
+# METRICS — TestPilot Success Criteria & ROI
 
 ---
 

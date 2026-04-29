@@ -1,13 +1,13 @@
 ---
 file: SECURITY.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# SECURITY — QA-Forge Compliance & Data Handling
+# SECURITY — TestPilot Compliance & Data Handling
 
 > **CRITICAL:** This document governs all data handling decisions across all 4 PoCs. Every team member must read and acknowledge this before using any PoC tool.
 
@@ -15,7 +15,7 @@ status: DRAFT
 
 ## 1. Data Classification
 
-| Class | Label | Banking Examples | Handling in QA-Forge |
+| Class | Label | Banking Examples | Handling in TestPilot |
 |-------|-------|-----------------|----------------------|
 | Public | PUBLIC | Published product brochures, public API docs | May be used as-is |
 | Internal | INTERNAL | Internal process docs, generic test templates | May be used after review |

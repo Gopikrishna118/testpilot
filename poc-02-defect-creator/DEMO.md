@@ -1,6 +1,6 @@
 ---
 file: DEMO.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
@@ -17,7 +17,7 @@ status: DRAFT
 > "Raising a complete JIRA defect — with proper steps, severity, and environment — takes [TODO: X minutes] when done right. Most of the time we cut corners. Let me show you a better way."
 
 **Problem (10–20s):**
-> "Here's a synthetic payment failure I found in testing. Two sentences in plain English. I'm going to paste this into QA-Forge."
+> "Here's a synthetic payment failure I found in testing. Two sentences in plain English. I'm going to paste this into TestPilot."
 
 **Demo Action (20–60s):**
 > [Paste description → click Create Defect → watch processing indicator]
@@ -66,7 +66,7 @@ status: DRAFT
 
 If JIRA API fails:
 1. Show the pre-generated JSON payload (`samples/expected-jira-ticket-reference.json`)
-2. Say: *"The JIRA connection dropped — here's the structured ticket that QA-Forge generated. In a live session, this would be in JIRA right now."*
+2. Say: *"The JIRA connection dropped — here's the structured ticket that TestPilot generated. In a live session, this would be in JIRA right now."*
 
 If Claude API fails:
 1. Show a pre-saved screenshot of a created JIRA ticket

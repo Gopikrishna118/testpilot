@@ -1,17 +1,17 @@
 ---
 file: ARCHITECTURE.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# ARCHITECTURE — QA-Forge (High Level)
+# ARCHITECTURE — TestPilot (High Level)
 
 ## Overview
 
-QA-Forge is a suite of 4 AI-augmented PoC tools sharing a common architecture pattern: raw QA inputs (text, files, screenshots) are sanitized to remove any PII, enriched by Claude Sonnet 4.6, and transformed into structured QA deliverables. Each PoC is independently deployable with its own FastAPI backend and Next.js frontend. Shared utilities (sanitizer, logger, config) live in `shared/utils/`.
+TestPilot is a suite of 4 AI-augmented PoC tools sharing a common architecture pattern: raw QA inputs (text, files, screenshots) are sanitized to remove any PII, enriched by Claude Sonnet 4.6, and transformed into structured QA deliverables. Each PoC is independently deployable with its own FastAPI backend and Next.js frontend. Shared utilities (sanitizer, logger, config) live in `shared/utils/`.
 
 ---
 

@@ -1,6 +1,6 @@
 ---
 file: DEMO.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
@@ -20,7 +20,7 @@ status: DRAFT
 > "Here's a synthetic KYC onboarding story. Normally, turning this into a proper test case Excel takes me around [TODO: X minutes]. Watch this."
 
 **Demo Action (20–60s):**
-> [Paste story into QA-Forge frontend → click Generate → watch streaming output]
+> [Paste story into TestPilot frontend → click Generate → watch streaming output]
 > "Claude is reading the acceptance criteria, identifying positive and negative scenarios, structuring each case with preconditions and steps."
 
 **Result (60–75s):**

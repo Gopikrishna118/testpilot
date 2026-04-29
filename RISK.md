@@ -1,13 +1,13 @@
 ---
 file: RISK.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# RISK — QA-Forge Risk Register
+# RISK — TestPilot Risk Register
 
 > Update this register whenever a new risk is identified or a risk status changes. Review at the start of each sprint day.
 

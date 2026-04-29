@@ -1,13 +1,13 @@
 ---
 file: GLOSSARY.md
-project: qa-forge
+project: testpilot
 owner: Gopi
 created: 2026-04-29
 last_review: 2026-04-29
 status: DRAFT
 ---
 
-# GLOSSARY — QA-Forge Terms of Reference
+# GLOSSARY — TestPilot Terms of Reference
 
 > **TODO (Gopi):** Expand definitions with Finastra-specific context where relevant before the pitch. Definitions marked with * are especially important for non-QA stakeholders in the pitch audience.
 
@@ -19,7 +19,7 @@ status: DRAFT
 |------|-----------|
 | **KYC** (Know Your Customer) | Regulatory process banks use to verify the identity of customers before and during service delivery; a key compliance workflow QA teams must test thoroughly. |
 | **AML** (Anti-Money Laundering) | Set of laws, regulations, and procedures to prevent financial crimes; AML transaction monitoring is a high-coverage QA area in banking systems. |
-| **PII** * (Personally Identifiable Information) | Any data that can identify an individual — name, account number, PAN, Aadhaar, phone, email. **Never** used in QA-Forge inputs; replaced with synthetic equivalents. |
+| **PII** * (Personally Identifiable Information) | Any data that can identify an individual — name, account number, PAN, Aadhaar, phone, email. **Never** used in TestPilot inputs; replaced with synthetic equivalents. |
 | **PAN** (Permanent Account Number) | 10-character alphanumeric Indian tax identifier (`ABCDE1234F` format). Classified as Restricted data. Never to be included in prompts. |
 | **Aadhaar** | 12-digit unique identification number issued by UIDAI to Indian residents. Classified as Restricted data. Never to be included in prompts. |
 | **IFSC** (Indian Financial System Code) | 11-character alphanumeric code identifying bank branches for NEFT/RTGS/IMPS transactions. Example: `HDFC0001234`. |
@@ -48,10 +48,10 @@ status: DRAFT
 | Term | Definition |
 |------|-----------|
 | **LLM** * (Large Language Model) | A deep learning model trained on vast text data capable of generating, summarising, and transforming natural language. Claude is an LLM built by Anthropic. |
-| **Prompt** | The instruction text sent to an LLM to guide its output. Quality of the prompt directly determines quality of the output; see `docs/prompts/` for QA-Forge master prompts. |
-| **Hallucination** * | When an LLM generates plausible-sounding but factually incorrect or fabricated content. A key risk (R-01) in QA-Forge; mitigated by human review and anti-hallucination prompt guards. |
+| **Prompt** | The instruction text sent to an LLM to guide its output. Quality of the prompt directly determines quality of the output; see `docs/prompts/` for TestPilot master prompts. |
+| **Hallucination** * | When an LLM generates plausible-sounding but factually incorrect or fabricated content. A key risk (R-01) in TestPilot; mitigated by human review and anti-hallucination prompt guards. |
 | **Context Window** | The maximum amount of text (measured in tokens) an LLM can process in a single interaction. Claude Sonnet 4.6 has a 200K token context window. |
 | **Token** | The basic unit of text processed by an LLM — roughly 0.75 words on average. API pricing is per token (input + output). Relevant to cost estimation in METRICS.md. |
-| **Sonnet 4.6** | Claude Sonnet 4.6 — the AI model used across all QA-Forge PoCs. Balance of capability, speed, and cost. Model ID: `claude-sonnet-4-6`. |
+| **Sonnet 4.6** | Claude Sonnet 4.6 — the AI model used across all TestPilot PoCs. Balance of capability, speed, and cost. Model ID: `claude-sonnet-4-6`. |
 | **MCP** (Model Context Protocol) | Anthropic's open protocol allowing Claude to connect to external tools and data sources (e.g., JIRA, Confluence) in a standardised way. Relevant for production architecture. |
-| **Agent** | An AI system that can autonomously take multi-step actions, use tools, and make decisions to complete a goal. Claude Code (used to build QA-Forge) is an agent. Production QA-Forge could be agentic. |
+| **Agent** | An AI system that can autonomously take multi-step actions, use tools, and make decisions to complete a goal. Claude Code (used to build TestPilot) is an agent. Production TestPilot could be agentic. |
