@@ -38,7 +38,7 @@ TestPilot is a 4-PoC sprint demonstrating how Claude Sonnet 4.6 can augment QA w
 
 | PoC | Status | Demo-Ready |
 |-----|--------|------------|
-| poc-01-testcase-gen | ✅ Live — [deploy ↗](https://render.com/deploy?repo=https://github.com/YOUR_ORG/testpilot) | 2026-05-01 ✅ |
+| poc-01-testcase-gen | ✅ Live — [deploy ↗](https://render.com/deploy?repo=https://github.com/Gopikrishna118/testpilot) | 2026-05-01 ✅ |
 | poc-02-defect-creator | 🟡 In Progress (Day 5) | 2026-05-04 |
 | poc-03-selenium-to-playwright | 🔴 Pending | 2026-05-05 |
 | poc-04-ui-vision | 🔴 Pending | 2026-05-06 |
@@ -84,7 +84,7 @@ Full instructions: [poc-01-testcase-gen/README.md](./poc-01-testcase-gen/README.
 
 PoC 01 is configured for one-click deployment via [`render.yaml`](./render.yaml).
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/YOUR_ORG/testpilot)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Gopikrishna118/testpilot)
 
 **What deploys:** `poc-01-testcase-gen/backend` as a Python web service.
 

@@ -4,7 +4,7 @@
 
 **Status:** ✅ Demo-Ready | **Last updated:** 2026-05-01
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/YOUR_ORG/testpilot)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Gopikrishna118/testpilot)
 
 ---
 
@@ -101,7 +101,7 @@ The enterprise UI loads immediately. Paste your requirements text, select the in
 
 ### One-click deploy
 
-[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/YOUR_ORG/testpilot)
+[![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/Gopikrishna118/testpilot)
 
 This deploys `poc-01-testcase-gen/backend` as a Render web service using the [`render.yaml`](../render.yaml) at the repo root.
 
