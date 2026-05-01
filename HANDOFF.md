@@ -3,7 +3,7 @@ file: HANDOFF.md
 project: testpilot
 session_end: 2026-05-01
 sprint_day: D4 of 10
-last_commit: c5b598e
+last_commit: 13cfda2
 ---
 
 # HANDOFF — TestPilot Session Context
@@ -16,10 +16,15 @@ last_commit: c5b598e
 ## Where We Are
 
 **Sprint:** Day 4 of 10 complete | 2026-05-01
-**Active work:** `poc-01-testcase-gen` — DONE and demo-ready
+**Active work:** `poc-01-testcase-gen` — DONE, deployed, demo-ready
 **Next work:** `poc-02-defect-creator` — start Day 5
-**Git state:** Clean. Last significant commit `c5b598e` — "Day 4: enterprise UI, download endpoint, E2E live with real API key"
-Follow-up commit `831d57d` — "Day 4: remove outputs from git, add to gitignore"
+**Git state:** Clean. Last commit `13cfda2` — "Add .python-version 3.11.9 and pin pythonVersion in render.yaml"
+
+| Location | URL |
+|----------|-----|
+| GitHub | https://github.com/Gopikrishna118/testpilot |
+| Render (live) | https://testpilot-wgpy.onrender.com |
+| Local | http://localhost:8001 (run uvicorn from `poc-01-testcase-gen/backend/`) |
 
 ---
 
@@ -40,9 +45,10 @@ All backend files done and smoke-tested against real API:
 | 9 | `docs/prompts/testcase-gen-master.md` | ✅ Done — CRITICAL JSON rules, 10-field schema |
 | 10 | Demo video | ✅ Recorded (90-second testcase-gen) |
 
-**Running server:** `uvicorn main:app --port 8001` from `poc-01-testcase-gen/backend/`
-**UI:** `http://localhost:8001`
-**Health:** `http://localhost:8001/api/v1/health`
+**Local:** `uvicorn main:app --port 8001` from `poc-01-testcase-gen/backend/`
+**Render:** https://testpilot-wgpy.onrender.com
+**Health (Render):** https://testpilot-wgpy.onrender.com/api/v1/health
+**Health (local):** http://localhost:8001/api/v1/health
 
 ---
 
@@ -118,8 +124,10 @@ The Claude prompt for poc-02 should return:
 
 | Fact | Value |
 |------|-------|
-| Repo | `C:\Projects\testpilot` |
-| poc-01 backend | `poc-01-testcase-gen/backend/` — run uvicorn from here |
+| Local repo | `C:\Projects\testpilot` |
+| GitHub | https://github.com/Gopikrishna118/testpilot |
+| Render (poc-01 live) | https://testpilot-wgpy.onrender.com |
+| poc-01 backend | `poc-01-testcase-gen/backend/` — fully deployed |
 | poc-02 backend | `poc-02-defect-creator/backend/` — Day 5 target |
 | Model | `claude-sonnet-4-6` (all PoCs) |
 | Pitch target | Rajesh Kumar, QA Manager, 12 engineers, Day 10 (2026-05-08) |
