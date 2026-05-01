@@ -63,10 +63,12 @@ Prepare a 30-second response to each before Day 9.
 |---|-----------------|------------------|
 | 1 | "Is this compliant? Can we send data to an external AI?" | Data is synthetic-only for PoC; production routes via InfoSec-approved gateway (Bedrock). Sanitizer layer rejects PII before any API call. See SECURITY.md. |
 | 2 | "The output needs human review anyway — where's the time saving?" | The save is in the first-draft generation (80% of the effort). Human review of a draft takes 10 min vs writing from scratch takes [X] hrs. |
-| 3 | [GOPI-FILL: your manager's likely 3rd objection] | [GOPI-FILL: your prepared response] |
+| 3 | "What if it generates incorrect test cases? We can't ship faulty tests in a banking product." | Every output is labelled "AI-GENERATED — requires human review." The tool accelerates first-draft creation; a QA engineer still owns sign-off. Hallucinations show up as obviously vague steps — easier to catch in review than a missed test case that was never written at all. |
 
 **Additional objections your manager might raise:**
-- [GOPI-FILL: e.g. "What's the cost?", "Who maintains this?", "What about hallucinations?"]
+- "Who maintains this when you're busy?" — It's a thin FastAPI wrapper around a prompt file. Any QA engineer can update the prompt in `docs/prompts/testcase-gen-master.md`; no ML knowledge needed.
+- "What's the ongoing cost?" — Claude Sonnet 4.6 via API: ~$3 per 1 M input tokens. A full test case generation run is ~2 K tokens → less than $0.01 per run. 12 engineers × 5 runs/day = under $1/day.
+- "What about model updates breaking the output?" — The prompt pins the JSON schema. Output format is validated by the parser before anything reaches Excel; schema violations surface immediately as errors, not silently wrong test cases.
 
 ---
 

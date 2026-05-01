@@ -19,7 +19,7 @@ TestPilot is a 10-day PoC sprint (2026-04-29 → 2026-05-08) demonstrating Claud
 
 ## Current Sprint Status
 
-**Sprint:** Day 3 of 10 | 2026-05-01
+**Sprint:** Day 4 of 10 | 2026-05-02
 
 ### Day 1 — Done (2026-04-29)
 - 46 files scaffolded across all 4 PoCs + `shared/`
@@ -32,21 +32,21 @@ TestPilot is a 10-day PoC sprint (2026-04-29 → 2026-05-08) demonstrating Claud
 - `project-knowledge/` bundle created for Claude Project migration (12 files)
 - Commits: `885d593` (Day 2 baseline), `820e134` (project-knowledge)
 
-### Day 3 — In Progress (2026-05-01)
-
-**Services complete ✅**
+### Day 3 — Done (2026-05-01)
 - `shared/utils/sanitizer.py` — 7-pattern PII detect + redact, Luhn check, overlap resolution
-- `poc-01/backend/services/prompt_builder.py` — module-level load, 5 input-type framings, ValueError on unknown type
-- `poc-01/backend/services/claude_client.py` — `complete()`, model `claude-sonnet-4-20250514`, 3-attempt backoff, selective retry
+- `poc-01/backend/services/prompt_builder.py` — module-level load, 5 input-type framings
+- `poc-01/backend/services/claude_client.py` — `complete()`, 3-attempt backoff, selective retry; API key via pydantic-settings
 - `poc-01/backend/services/response_parser.py` — fence-strip, schema validation, `risk_level` normalisation
-- `poc-01/backend/services/excel_formatter.py` — 6-col xlsx, alternating fills, risk colouring, auto-fit widths
+- `poc-01/backend/services/excel_formatter.py` — 6-col xlsx, risk colouring, auto-fit widths
+- `poc-01/backend/api/v1/endpoints/generate.py` — E2E wired; all 3 input types smoke-tested ✅
+- Fixed: `anthropic` bumped to `>=0.40.0` (httpx compat); `CORS_ORIGINS` JSON format in `.env.example`
+- **MOCK active in `claude_client.py`** — remove before demo
+- Commits: `5ef94df` (5/7 checkpoint), `fee2ba4` (Day 3 complete)
 
-**Pending this session**
-- [ ] Step 6: `poc-01/backend/api/v1/endpoints/generate.py` — wire all services together
-- [ ] Smoke test: `uvicorn main:app --reload` + curl `/health` + `/api/v1/generate`
-- [ ] Commit Day 3 work
-
-**Next session starts at:** Step 6 — `generate.py`
+### Day 4 — Next (2026-05-02)
+- First task: restore real `complete()` implementation in `claude_client.py` (remove mock, paste retry loop from git history `5ef94df`)
+- Then: record 90-second testcase-gen demo video (use real ANTHROPIC_API_KEY in `.env`)
+- Pitch micro-task: draft 3 Rajesh Kumar objections + responses in `PITCH_CONTEXT.md`
 
 ---
 
