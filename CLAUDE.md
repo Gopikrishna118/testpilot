@@ -40,13 +40,26 @@ TestPilot is a 10-day PoC sprint (2026-04-29 → 2026-05-08) demonstrating Claud
 - `poc-01/backend/services/excel_formatter.py` — 6-col xlsx, risk colouring, auto-fit widths
 - `poc-01/backend/api/v1/endpoints/generate.py` — E2E wired; all 3 input types smoke-tested ✅
 - Fixed: `anthropic` bumped to `>=0.40.0` (httpx compat); `CORS_ORIGINS` JSON format in `.env.example`
-- **MOCK active in `claude_client.py`** — remove before demo
 - Commits: `5ef94df` (5/7 checkpoint), `fee2ba4` (Day 3 complete)
 
-### Day 4 — Next (2026-05-02)
-- First task: restore real `complete()` implementation in `claude_client.py` (remove mock, paste retry loop from git history `5ef94df`)
-- Then: record 90-second testcase-gen demo video (use real ANTHROPIC_API_KEY in `.env`)
-- Pitch micro-task: draft 3 Rajesh Kumar objections + responses in `PITCH_CONTEXT.md`
+### Day 4 — Done (2026-05-01)
+- Mock removed from `claude_client.py`; real `ANTHROPIC_API_KEY` wired in `.env` ✅
+- Fixed `CLAUDE_MODEL` env var (had display string `→ claude-sonnet-4-20250514` baked in) ✅
+- Fixed `_MAX_TOKENS` 4096 → 8192 (was truncating 8+ test case responses) ✅
+- Prompt hardened: CRITICAL JSON-only output rules + anti-hallucination guard alignment ✅
+- `response_parser.py` — 3-strategy fence extractor, raw-response logging, `test_steps` schema aligned to master prompt ✅
+- `excel_formatter.py` — expanded from 6 to 10 columns matching full prompt schema ✅
+- Enterprise UI (`static/index.html`) — dark navy/gold, two-column, stat cards, collapsible test case cards ✅
+- `GET /api/v1/download` endpoint — path-traversal guard, xlsx-only, `FileResponse` ✅
+- `outputs/` added to `.gitignore`, removed from git history ✅
+- Demo video recorded (90-second testcase-gen) ✅
+- Commits: `c5b598e` (Day 4 main), `831d57d` (outputs gitignored)
+
+### Day 5 — Next (2026-05-02)
+- First task: Build poc-02 JIRA defect creator — start with backend scaffold
+- Read `poc-02-defect-creator/backend/` scaffold files before writing anything
+- Wire `services/claude_client.py` → `services/jira_client.py` → POST `/api/v1/create`
+- Reuse shared sanitizer pattern from poc-01
 
 ---
 

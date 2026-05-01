@@ -75,8 +75,8 @@ Pick one small pitch-prep task every day, even on PoC build days.
 | D9 | Full pitch deck complete + rehearse once |
 | D10 | Final rehearsal — time it (target: under 15 min) |
 
-**Today's logged pitch-prep task:**
-> [FILL AT CLOSEOUT: what did you do for pitch prep today?]
+**Today's logged pitch-prep task (D4 — 2026-05-01):**
+> Recorded 90-second testcase-gen demo video. End-to-end flow captured: paste JIRA story → Generate → stat cards appear → download Excel. UI visually polished enough to show Rajesh without apology.
 
 ---
 
@@ -91,8 +91,8 @@ Vague = bad. Specific = good.
 | "Work on pitch" | "Open `PITCH_CONTEXT.md`, fill in manager name + objection #3" |
 | "Fix the bug" | "Debug the AADHAAR regex in `sanitizer.py` — false positive on account numbers" |
 
-**Tomorrow's first task:**
-> [FILL AT CLOSEOUT: write it now while context is fresh]
+**Tomorrow's first task (D5 — 2026-05-02):**
+> Open `poc-02-defect-creator/backend/` and read all scaffold files (main.py, config.py, models/, api/v1/endpoints/create.py, docs/prompts/defect-creator-master.md) before writing a single line of code. Map existing stubs to the poc-01 patterns. Then write `services/claude_client.py` first — it's identical to poc-01's except for the import path.
 
 ---
 
@@ -126,5 +126,5 @@ API costs apply only if you move to direct API usage (`ANTHROPIC_API_KEY` calls)
 - [ ] Token budget noted (if using API directly)
 - [ ] Laptop closed
 
-**Sprint days remaining:** [UPDATE DAILY]
-**Next milestone:** [UPDATE DAILY — e.g. "poc-01 demo video by Day 4"]
+**Sprint days remaining:** 6 (D5–D10)
+**Next milestone:** poc-02 JIRA defect creator demo video by Day 6 (2026-05-04)

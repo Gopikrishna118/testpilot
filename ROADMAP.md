@@ -15,9 +15,9 @@ status: DRAFT
 |-----|------|-------|-------|-------------------|--------|
 | D1 | 2026-04-29 | 3h | Foundation + scaffold + finish testcase-gen baseline | Project structure + initial commit | ✅ Done |
 | D2 | 2026-04-30 | 4h | testcase-gen core flow (Confluence → Excel) | Happy path E2E | ✅ Done |
-| D3 | 2026-05-01 | 4h | testcase-gen polish + JIRA/BRD inputs + error handling | 3 input types working | 🟡 In Progress |
-| D4 | 2026-05-02 | 3h | testcase-gen demo prep | 90-sec video + 1-pager | 🔴 Pending |
-| D5 | 2026-05-03 | 4h | JIRA Defect Creator build | Description → JIRA ticket via API | 🔴 Pending |
+| D3 | 2026-05-01 | 4h | testcase-gen polish + JIRA/BRD inputs + error handling | 3 input types working | ✅ Done |
+| D4 | 2026-05-01 | 5h | testcase-gen: real API, enterprise UI, download endpoint, demo video | E2E live + demo recorded | ✅ Done |
+| D5 | 2026-05-02 | 4h | JIRA Defect Creator build | Description → JIRA ticket via API | 🔴 Pending |
 | D6 | 2026-05-04 | 3h | JIRA Defect Creator polish + demo | Video + slide | 🔴 Pending |
 | D7 | 2026-05-05 | 4h | Selenium → Playwright concept PoC | 1 conversion working | 🔴 Pending |
 | D8 | 2026-05-06 | 4h | UI Vision concept PoC | Screenshot → test cases | 🔴 Pending |
@@ -30,22 +30,23 @@ status: DRAFT
 
 ## Today's Progress
 
-> **TODO (Gopi):** Update this section at the end of each working day. Record planned vs. actual, any blockers, and carry-overs.
-
-**Current Day:** D3 — 2026-05-01
+**Current Day:** D4 — 2026-05-01 ✅ Done
 
 **Completed today:**
-- [x] `shared/utils/sanitizer.py` — detect + redact, 7 patterns, Luhn, overlap resolution
-- [x] `poc-01/backend/services/prompt_builder.py` — module-level load, 5 input-type framings
-- [x] `poc-01/backend/services/claude_client.py` — async complete(), 3-attempt backoff, selective retry
-- [x] `poc-01/backend/services/response_parser.py` — fence-strip, key validation, risk_level normalisation
-- [x] `poc-01/backend/services/excel_formatter.py` — 6-col xlsx, risk colouring, auto-fit widths
-- [ ] `poc-01/backend/api/v1/endpoints/generate.py` — pending
-- [ ] Smoke test + Day 3 commit — pending
+- [x] Mock removed from `claude_client.py`; real API key wired
+- [x] Fixed `CLAUDE_MODEL` env var bug (display string baked into `.env`)
+- [x] `_MAX_TOKENS` raised 4096 → 8192 (was truncating large responses)
+- [x] Prompt hardened with CRITICAL JSON-only output rules
+- [x] `response_parser.py` hardened — 3-strategy extractor, logging, 10-field schema
+- [x] `excel_formatter.py` expanded to 10-column output
+- [x] `GET /api/v1/download` endpoint with path-traversal security guard
+- [x] Enterprise UI (`static/index.html`) — dark navy/gold, stat cards, collapsible cards
+- [x] `outputs/` gitignored, removed from history
+- [x] Demo video recorded (90-second testcase-gen)
 
 **Blockers:** None
 
-**Carry-over to D4:** generate.py + smoke test if not completed this session
+**Carry-over to D5:** None — poc-01 is complete and demo-ready
 
 ---
 
@@ -54,10 +55,10 @@ status: DRAFT
 | Metric | Value |
 |--------|-------|
 | Total planned hours | 34h |
-| Hours elapsed | ~7h (D1: 3h + D2: 4h) + D3 in progress |
-| Hours remaining | ~27h |
-| Days elapsed | 2 complete + D3 in progress |
-| Days remaining | 7 |
+| Hours elapsed | ~16h (D1: 3h, D2: 4h, D3: 4h, D4: 5h) |
+| Hours remaining | ~18h |
+| Days elapsed | 4 complete |
+| Days remaining | 6 |
 
 ---
 
@@ -66,8 +67,8 @@ status: DRAFT
 | Milestone | Target Date | Status |
 |-----------|-------------|--------|
 | All 4 PoCs scaffolded | 2026-04-29 | ✅ Done |
-| testcase-gen E2E working | 2026-04-30 | 🟡 In Progress — generate.py pending |
-| testcase-gen demo video recorded | 2026-05-02 | 🔴 Pending |
+| testcase-gen E2E working | 2026-04-30 | ✅ Done — live with real API key |
+| testcase-gen demo video recorded | 2026-05-01 | ✅ Done |
 | Defect creator demo video recorded | 2026-05-04 | 🔴 Pending |
 | Selenium→Playwright conversion working | 2026-05-05 | 🔴 Pending |
 | UI Vision working | 2026-05-06 | 🔴 Pending |
