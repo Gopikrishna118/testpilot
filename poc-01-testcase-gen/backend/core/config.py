@@ -6,7 +6,7 @@ class Settings(BaseSettings):
 
     anthropic_api_key: str
     claude_model: str = "claude-sonnet-4-6"
-    output_dir: str = "./outputs"
+    output_dir: str = "/tmp/outputs"
     max_retries: int = 2
     cors_origins: list[str] = ["http://localhost:3000"]
     log_level: str = "INFO"

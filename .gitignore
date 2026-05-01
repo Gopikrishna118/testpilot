@@ -57,3 +57,4 @@ poc-03-selenium-to-playwright/output/*.ts
 *.key
 *.pem
 secrets/
+poc-01-testcase-gen/backend/outputs/

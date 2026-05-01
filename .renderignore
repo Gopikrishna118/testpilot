@@ -1,0 +1,15 @@
+.env
+.env.*
+outputs/
+poc-*/outputs/
+__pycache__/
+.venv/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+node_modules/
+.next/
+*.pyc
+*.pyo
+.DS_Store
+Thumbs.db
