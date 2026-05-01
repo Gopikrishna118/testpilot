@@ -41,6 +41,13 @@ CONTENT:
 
 ## Output Format
 
+**CRITICAL — output rules (violation causes downstream pipeline failure):**
+- Your entire response MUST be a single valid JSON array.
+- The first character must be `[` and the last must be `]`.
+- Do NOT include any preamble, explanation, commentary, or summary before or after the array.
+- Do NOT wrap the array in a markdown code fence (no ` ```json ` or ` ``` `).
+- Do NOT add any text after the closing `]`.
+
 Return a JSON array of test case objects with this exact schema:
 
 ```json
@@ -80,7 +87,7 @@ Return a JSON array of test case objects with this exact schema:
 > **TODO (Gopi):** Refine these guards on Day 2 after seeing first real outputs. Add domain-specific checks (e.g., "do not reference Finastra internal system names not provided in the input").
 
 - Never invent business rules not stated in the input.
-- If the input is too vague to generate meaningful test cases, respond: `{"error": "INPUT_TOO_VAGUE", "detail": "<explanation>"}`.
+- If the input is too vague to generate meaningful test cases, respond with a single-element array: `[{"test_id": "ERR-001", "scenario": "INPUT_TOO_VAGUE", "preconditions": "", "test_steps": [], "expected_result": "<explanation of why input is too vague>", "priority": "Low", "test_type": "Edge", "traceability": "", "module": "", "notes": "NEEDS REVIEW: Input too vague to generate test cases."}]`.
 - Do not assume integration points unless explicitly mentioned.
 
 ---
