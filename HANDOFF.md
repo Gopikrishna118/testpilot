@@ -3,7 +3,7 @@ file: HANDOFF.md
 project: testpilot
 session_end: 2026-05-01
 sprint_day: D4 of 10
-last_commit: 13cfda2
+last_commit: 38ee6df
 ---
 
 # HANDOFF — TestPilot Session Context
@@ -18,7 +18,7 @@ last_commit: 13cfda2
 **Sprint:** Day 4 of 10 complete | 2026-05-01
 **Active work:** `poc-01-testcase-gen` — DONE, deployed, demo-ready
 **Next work:** `poc-02-defect-creator` — start Day 5
-**Git state:** Clean. Last commit `13cfda2` — "Add .python-version 3.11.9 and pin pythonVersion in render.yaml"
+**Git state:** Clean. Last commit `38ee6df` — "Day 4 final: HANDOFF updated — Render live, GitHub linked, Day 5 queued"
 
 | Location | URL |
 |----------|-----|
@@ -35,13 +35,13 @@ All backend files done and smoke-tested against real API:
 | # | File | Status |
 |---|------|--------|
 | 1 | `shared/utils/sanitizer.py` | ✅ Done |
-| 2 | `poc-01/backend/services/prompt_builder.py` | ✅ Done |
-| 3 | `poc-01/backend/services/claude_client.py` | ✅ Done — mock removed, real key wired |
-| 4 | `poc-01/backend/services/response_parser.py` | ✅ Done — 3-strategy extractor, 10-field schema |
-| 5 | `poc-01/backend/services/excel_formatter.py` | ✅ Done — 10-column xlsx |
-| 6 | `poc-01/backend/api/v1/endpoints/generate.py` | ✅ Done — POST /api/v1/generate |
-| 7 | `poc-01/backend/api/v1/endpoints/download.py` | ✅ Done — GET /api/v1/download |
-| 8 | `poc-01/backend/static/index.html` | ✅ Done — enterprise UI, dark navy/gold |
+| 2 | `poc-01-testcase-gen/backend/services/prompt_builder.py` | ✅ Done |
+| 3 | `poc-01-testcase-gen/backend/services/claude_client.py` | ✅ Done — mock removed, real key wired |
+| 4 | `poc-01-testcase-gen/backend/services/response_parser.py` | ✅ Done — 3-strategy extractor, 10-field schema |
+| 5 | `poc-01-testcase-gen/backend/services/excel_formatter.py` | ✅ Done — 10-column xlsx |
+| 6 | `poc-01-testcase-gen/backend/api/v1/endpoints/generate.py` | ✅ Done — POST /api/v1/generate |
+| 7 | `poc-01-testcase-gen/backend/api/v1/endpoints/download.py` | ✅ Done — GET /api/v1/download |
+| 8 | `poc-01-testcase-gen/backend/static/index.html` | ✅ Done — enterprise UI, dark navy/gold |
 | 9 | `docs/prompts/testcase-gen-master.md` | ✅ Done — CRITICAL JSON rules, 10-field schema |
 | 10 | Demo video | ✅ Recorded (90-second testcase-gen) |
 
