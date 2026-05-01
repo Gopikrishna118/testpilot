@@ -5,9 +5,10 @@ from pydantic import BaseModel, field_validator
 
 class InputType(str, Enum):
     confluence = "confluence"
-    jira_story = "jira_story"
+    jira = "jira"
     brd = "brd"
-    freetext = "freetext"
+    text = "text"
+    file = "file"
 
 
 class GenerateRequest(BaseModel):
