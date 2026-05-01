@@ -18,9 +18,9 @@ status: FILL BEFORE PITCH — items marked [GOPI-FILL] require your input
 
 | Field | Value |
 |-------|-------|
-| Manager name | [GOPI-FILL: First + Last name] |
-| Manager role / title | [GOPI-FILL: e.g. QA Manager, Engineering Manager] |
-| Direct team size | [GOPI-FILL: how many QA engineers report to them] |
+| Manager name | Rajesh Kumar |
+| Manager role / title | QA Manager |
+| Direct team size | 12 engineers |
 | Domain / product line | Finastra banking products — [GOPI-FILL: specific product e.g. Fusion Essence, Lending] |
 | Manager's AI familiarity | [GOPI-FILL: Skeptic / Curious / Enthusiastic] |
 | Manager's primary concern | [GOPI-FILL: e.g. data security, cost, adoption, compliance, speed] |

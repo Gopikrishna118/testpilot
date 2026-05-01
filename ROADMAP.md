@@ -13,9 +13,9 @@ status: DRAFT
 
 | Day | Date | Hours | Focus | End-of-Day Output | Status |
 |-----|------|-------|-------|-------------------|--------|
-| D1 | 2026-04-29 | 3h | Foundation + scaffold + finish testcase-gen baseline | Project structure + initial commit | 🔴 Pending |
-| D2 | 2026-04-30 | 4h | testcase-gen core flow (Confluence → Excel) | Happy path E2E | 🔴 Pending |
-| D3 | 2026-05-01 | 4h | testcase-gen polish + JIRA/BRD inputs + error handling | 3 input types working | 🔴 Pending |
+| D1 | 2026-04-29 | 3h | Foundation + scaffold + finish testcase-gen baseline | Project structure + initial commit | ✅ Done |
+| D2 | 2026-04-30 | 4h | testcase-gen core flow (Confluence → Excel) | Happy path E2E | ✅ Done |
+| D3 | 2026-05-01 | 4h | testcase-gen polish + JIRA/BRD inputs + error handling | 3 input types working | 🟡 In Progress |
 | D4 | 2026-05-02 | 3h | testcase-gen demo prep | 90-sec video + 1-pager | 🔴 Pending |
 | D5 | 2026-05-03 | 4h | JIRA Defect Creator build | Description → JIRA ticket via API | 🔴 Pending |
 | D6 | 2026-05-04 | 3h | JIRA Defect Creator polish + demo | Video + slide | 🔴 Pending |
@@ -32,15 +32,20 @@ status: DRAFT
 
 > **TODO (Gopi):** Update this section at the end of each working day. Record planned vs. actual, any blockers, and carry-overs.
 
-**Current Day:** D1 — 2026-04-29
+**Current Day:** D3 — 2026-05-01
 
 **Completed today:**
-- [ ] Project scaffold created
-- [ ] Initial git commit pushed
+- [x] `shared/utils/sanitizer.py` — detect + redact, 7 patterns, Luhn, overlap resolution
+- [x] `poc-01/backend/services/prompt_builder.py` — module-level load, 5 input-type framings
+- [x] `poc-01/backend/services/claude_client.py` — async complete(), 3-attempt backoff, selective retry
+- [x] `poc-01/backend/services/response_parser.py` — fence-strip, key validation, risk_level normalisation
+- [x] `poc-01/backend/services/excel_formatter.py` — 6-col xlsx, risk colouring, auto-fit widths
+- [ ] `poc-01/backend/api/v1/endpoints/generate.py` — pending
+- [ ] Smoke test + Day 3 commit — pending
 
-**Blockers:** None yet
+**Blockers:** None
 
-**Carry-over to D2:** None yet
+**Carry-over to D4:** generate.py + smoke test if not completed this session
 
 ---
 
@@ -49,10 +54,10 @@ status: DRAFT
 | Metric | Value |
 |--------|-------|
 | Total planned hours | 34h |
-| Hours elapsed | 0h |
-| Hours remaining | 34h |
-| Days elapsed | 0 of 10 |
-| Days remaining | 10 |
+| Hours elapsed | ~7h (D1: 3h + D2: 4h) + D3 in progress |
+| Hours remaining | ~27h |
+| Days elapsed | 2 complete + D3 in progress |
+| Days remaining | 7 |
 
 ---
 
@@ -60,8 +65,8 @@ status: DRAFT
 
 | Milestone | Target Date | Status |
 |-----------|-------------|--------|
-| All 4 PoCs scaffolded | 2026-04-29 | 🔴 Pending |
-| testcase-gen E2E working | 2026-04-30 | 🔴 Pending |
+| All 4 PoCs scaffolded | 2026-04-29 | ✅ Done |
+| testcase-gen E2E working | 2026-04-30 | 🟡 In Progress — generate.py pending |
 | testcase-gen demo video recorded | 2026-05-02 | 🔴 Pending |
 | Defect creator demo video recorded | 2026-05-04 | 🔴 Pending |
 | Selenium→Playwright conversion working | 2026-05-05 | 🔴 Pending |

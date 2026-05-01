@@ -19,25 +19,34 @@ TestPilot is a 10-day PoC sprint (2026-04-29 → 2026-05-08) demonstrating Claud
 
 ## Current Sprint Status
 
-**Sprint:** Day 2 of 10 | 2026-04-30
+**Sprint:** Day 3 of 10 | 2026-05-01
 
 ### Day 1 — Done (2026-04-29)
 - 46 files scaffolded across all 4 PoCs + `shared/`
 - Repo renamed `qa-forge` → `testpilot` across all docs
 - Commits: `d2186ae` (initial scaffold), `086ff9b` (rename)
 
-### Day 2 — In Progress (2026-04-30)
+### Day 2 — Done (2026-04-30)
+- Security bundle: `SECURITY.md` (OWASP ASVS / NIST / DPDP), `THREAT_MODEL.md` (STRIDE), `DATA_HANDLING.md`, `.env.example`
+- `poc-01` backend skeleton: FastAPI layered structure (`api/`, `core/`, `services/`, `models/`), health endpoint, sanitizer, Claude client, Excel formatter
+- `project-knowledge/` bundle created for Claude Project migration (12 files)
+- Commits: `885d593` (Day 2 baseline), `820e134` (project-knowledge)
 
-| Work Item | Status |
-|-----------|--------|
-| Security bundle (`SECURITY.md`, `THREAT_MODEL.md`, `DATA_HANDLING.md`, `.env.example`) | Drafted in chat — **NOT YET committed** |
-| ROI Excel (`testpilot_roi.xlsx`) | Built — needs to be saved to `docs/` |
-| `poc-01` backend skeleton | Drafted in chat — **NOT YET written to repo** |
+### Day 3 — In Progress (2026-05-01)
 
-### Day 3 — Next (2026-05-01)
-- Commit all Day 2 work
-- Build Next.js frontend scaffold for `poc-01`
-- Build Confluence input adapter for `poc-01`
+**Services complete ✅**
+- `shared/utils/sanitizer.py` — 7-pattern PII detect + redact, Luhn check, overlap resolution
+- `poc-01/backend/services/prompt_builder.py` — module-level load, 5 input-type framings, ValueError on unknown type
+- `poc-01/backend/services/claude_client.py` — `complete()`, model `claude-sonnet-4-20250514`, 3-attempt backoff, selective retry
+- `poc-01/backend/services/response_parser.py` — fence-strip, schema validation, `risk_level` normalisation
+- `poc-01/backend/services/excel_formatter.py` — 6-col xlsx, alternating fills, risk colouring, auto-fit widths
+
+**Pending this session**
+- [ ] Step 6: `poc-01/backend/api/v1/endpoints/generate.py` — wire all services together
+- [ ] Smoke test: `uvicorn main:app --reload` + curl `/health` + `/api/v1/generate`
+- [ ] Commit Day 3 work
+
+**Next session starts at:** Step 6 — `generate.py`
 
 ---
 
