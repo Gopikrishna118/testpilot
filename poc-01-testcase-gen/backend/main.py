@@ -3,6 +3,7 @@ import logging
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
 from api.v1.router import router as v1_router
 from core.config import settings
@@ -34,3 +35,5 @@ app.add_middleware(
 )
 
 app.include_router(v1_router, prefix="/api/v1")
+
+app.mount("/", StaticFiles(directory="static", html=True), name="static")

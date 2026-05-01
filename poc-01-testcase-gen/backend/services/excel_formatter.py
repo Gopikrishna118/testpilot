@@ -14,11 +14,15 @@ logger = logging.getLogger(__name__)
 
 _COLUMNS: list[tuple[str, str]] = [
     ("test_id",         "Test ID"),
+    ("module",          "Module"),
     ("scenario",        "Scenario"),
     ("preconditions",   "Preconditions"),
-    ("steps",           "Steps"),
+    ("test_steps",      "Test Steps"),
     ("expected_result", "Expected Result"),
-    ("risk_level",      "Risk Level"),
+    ("priority",        "Priority"),
+    ("test_type",       "Test Type"),
+    ("traceability",    "Traceability"),
+    ("notes",           "Notes"),
 ]
 
 # ── Styles ────────────────────────────────────────────────────────────────────
@@ -31,7 +35,7 @@ _ROW_FILLS: tuple[PatternFill, PatternFill] = (
     PatternFill("solid", fgColor="DCE6F1"),   # odd data rows
 )
 
-_RISK_STYLES: dict[str, tuple[PatternFill, Font]] = {
+_PRIORITY_STYLES: dict[str, tuple[PatternFill, Font]] = {
     "High":   (PatternFill("solid", fgColor="FF0000"), Font(color="FFFFFF")),
     "Medium": (PatternFill("solid", fgColor="FFC000"), Font(color="000000")),
     "Low":    (PatternFill("solid", fgColor="92D050"),  Font(color="000000")),
@@ -41,8 +45,8 @@ _WRAP = Alignment(wrap_text=True, vertical="top")
 _MAX_COL_WIDTH = 60
 
 # Resolved once at module load — avoids magic number in the data loop.
-_RISK_COL: int = next(
-    i for i, (key, _) in enumerate(_COLUMNS, start=1) if key == "risk_level"
+_PRIORITY_COL: int = next(
+    i for i, (key, _) in enumerate(_COLUMNS, start=1) if key == "priority"
 )
 
 
@@ -125,13 +129,13 @@ def format(test_cases: list[dict[str, Any]], output_path: str) -> str:  # noqa: 
             cell.fill = row_fill
             cell.alignment = _WRAP
 
-        # Risk Level colour overrides the alternating row fill.
-        risk = str(tc.get("risk_level", "Medium")).strip().title()
-        if risk in _RISK_STYLES:
-            risk_fill, risk_font = _RISK_STYLES[risk]
-            risk_cell = ws.cell(row=row, column=_RISK_COL)
-            risk_cell.fill = risk_fill
-            risk_cell.font = risk_font
+        # Priority colour overrides the alternating row fill.
+        priority = str(tc.get("priority", "Medium")).strip().title()
+        if priority in _PRIORITY_STYLES:
+            pri_fill, pri_font = _PRIORITY_STYLES[priority]
+            pri_cell = ws.cell(row=row, column=_PRIORITY_COL)
+            pri_cell.fill = pri_fill
+            pri_cell.font = pri_font
 
     # ── Column widths + freeze ────────────────────────────────────────────────
     for col_idx in range(1, len(_COLUMNS) + 1):

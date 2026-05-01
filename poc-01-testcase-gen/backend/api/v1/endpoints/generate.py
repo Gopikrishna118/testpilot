@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 
 from fastapi import APIRouter, HTTPException
+from fastapi.responses import PlainTextResponse
 
 from core.config import settings
 from models.request import GenerateRequest
@@ -16,6 +17,18 @@ from services.sanitizer import Sanitizer
 
 router = APIRouter()
 logger = logging.getLogger(__name__)
+
+
+@router.post("/debug", response_class=PlainTextResponse)
+async def debug_raw(payload: GenerateRequest) -> str:
+    """Return the raw Claude response with no parsing — for pipeline debugging only."""
+    san = Sanitizer.scrub(payload.content)
+    if san.pii_detected:
+        raise HTTPException(status_code=400, detail="PII_DETECTED")
+    prompt = build(payload.input_type.value, payload.content)
+    raw = await complete(prompt)
+    logger.info("DEBUG raw response | len=%d", len(raw))
+    return raw
 
 
 @router.post("", response_model=GenerateResponse)
@@ -40,7 +53,11 @@ async def generate_test_cases(payload: GenerateRequest) -> GenerateResponse:
     raw = await complete(prompt)
 
     # 4. Parse and validate response
-    test_cases = parse(raw)
+    try:
+        test_cases = parse(raw)
+    except ValueError as exc:
+        logger.error("Parse failed | error=%s", exc)
+        raise HTTPException(status_code=500, detail={"error": "PARSE_FAILED", "message": str(exc)}) from exc
 
     # 5. Write Excel — ensure output dir exists, then pass full path
     Path(settings.output_dir).mkdir(parents=True, exist_ok=True)

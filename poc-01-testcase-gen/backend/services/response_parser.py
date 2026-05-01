@@ -11,47 +11,58 @@ _FENCE = re.compile(r"```(?:json)?\s*(.*?)\s*```", re.DOTALL)
 
 # ── Schema ────────────────────────────────────────────────────────────────────
 
-# risk_level is intentionally absent — it defaults to "Medium" rather than raising.
+# priority/test_type/traceability/notes/module are optional — Claude may omit them.
 _REQUIRED_KEYS: frozenset[str] = frozenset({
-    "test_id", "scenario", "preconditions", "steps", "expected_result",
+    "test_id", "scenario", "preconditions", "test_steps", "expected_result",
 })
 
 
 # ── Internal helper ───────────────────────────────────────────────────────────
 
+_ARRAY = re.compile(r"(\[.*\])", re.DOTALL)
+
 def _strip_fences(text: str) -> str:
-    """Return the content inside the first markdown code fence, or *text* stripped."""
+    """Extract JSON array from Claude response.
+
+    Priority: 1) inside a code fence, 2) bare text, 3) first [...] found anywhere.
+    Strategy 3 catches preamble/postamble text that slips past the prompt constraints.
+    """
+    # 1. Inside a markdown code fence
     match = _FENCE.search(text)
-    return match.group(1).strip() if match else text.strip()
+    if match:
+        return match.group(1).strip()
+    # 2. Looks like it starts with the array directly
+    stripped = text.strip()
+    if stripped.startswith("["):
+        return stripped
+    # 3. Scan for the outermost [...] in case Claude added preamble
+    match = _ARRAY.search(text)
+    if match:
+        logger.warning("Extracted JSON array from mixed response (preamble present)")
+        return match.group(1).strip()
+    return stripped
 
 
 # ── Public API ────────────────────────────────────────────────────────────────
 
 def parse(response_text: str) -> list[dict[str, Any]]:
-    """Parse and validate Claude's test-case JSON response.
+    """Parse and validate Claude's test-case JSON response."""
+    logger.info(
+        "Claude raw response | len=%d chars | preview=%r",
+        len(response_text),
+        response_text[:200],
+    )
 
-    Strips markdown fences, decodes JSON, validates structure and required keys,
-    and normalises ``risk_level`` to title case. The returned list is ready for
-    ``excel_formatter.write()``.
-
-    Args:
-        response_text: Raw text returned by the Claude API.
-
-    Returns:
-        A list of test-case dicts, each containing exactly:
-        ``test_id``, ``scenario``, ``preconditions``, ``steps``,
-        ``expected_result``, ``risk_level``.
-
-    Raises:
-        ValueError: If the text is not valid JSON after fence-stripping,
-                    if the top-level value is not a list, if any list item
-                    is not a dict, or if a required key is absent from an item.
-    """
     raw = _strip_fences(response_text)
 
     try:
         data = json.loads(raw)
     except json.JSONDecodeError as exc:
+        logger.error(
+            "JSON parse failure | stripped_len=%d | stripped_preview=%r",
+            len(raw),
+            raw[:500],
+        )
         raise ValueError(
             f"Response is not valid JSON after stripping markdown fences: {exc}"
         ) from exc
@@ -76,11 +87,15 @@ def parse(response_text: str) -> list[dict[str, Any]]:
 
         result.append({
             "test_id":        item["test_id"],
+            "module":         item.get("module", ""),
             "scenario":       item["scenario"],
             "preconditions":  item["preconditions"],
-            "steps":          item["steps"],
+            "test_steps":     item["test_steps"],
             "expected_result": item["expected_result"],
-            "risk_level":     str(item.get("risk_level", "Medium")).strip().title(),
+            "priority":       str(item.get("priority", "Medium")).strip().title(),
+            "test_type":      item.get("test_type", ""),
+            "traceability":   item.get("traceability", ""),
+            "notes":          item.get("notes", ""),
         })
 
     logger.info("Parsed %d test case(s) from Claude response", len(result))

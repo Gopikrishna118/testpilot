@@ -17,8 +17,8 @@ if not _API_KEY:
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-_MODEL = "claude-sonnet-4-20250514"
-_MAX_TOKENS = 4096
+_MODEL = settings.claude_model
+_MAX_TOKENS = 8192
 _MAX_ATTEMPTS = 3
 _BACKOFF: tuple[int, ...] = (1, 2, 4)  # seconds between attempts 1→2, 2→3
 
@@ -33,6 +33,33 @@ _client = anthropic.AsyncAnthropic(api_key=_API_KEY)
 # ── Public API ────────────────────────────────────────────────────────────────
 
 async def complete(prompt: str) -> str:
-    # MOCK — remove before demo
-    logger.info("Claude API call (MOCK) | model=%s", _MODEL)
-    return '[{"test_id":"TC-001","scenario":"Valid password reset via email","preconditions":"User has registered email","steps":"1. Click Forgot Password 2. Enter email 3. Enter OTP 4. Set new password","expected_result":"Password reset successfully","risk_level":"High"}]'
+    last_error: Exception | None = None
+
+    for attempt in range(1, _MAX_ATTEMPTS + 1):
+        logger.info("Claude API call | attempt=%d/%d model=%s", attempt, _MAX_ATTEMPTS, _MODEL)
+        try:
+            message = await _client.messages.create(
+                model=_MODEL,
+                max_tokens=_MAX_TOKENS,
+                messages=[{"role": "user", "content": prompt}],
+            )
+
+            if not message.content or not message.content[0].text:
+                raise RuntimeError("Empty response from Claude")
+
+            return message.content[0].text
+
+        except _NON_RETRYABLE:
+            raise
+
+        except _RETRYABLE as exc:
+            last_error = exc
+            if attempt < _MAX_ATTEMPTS:
+                wait = _BACKOFF[attempt - 1]
+                logger.warning(
+                    "Claude API retry | attempt=%d/%d error=%s waiting=%ds",
+                    attempt, _MAX_ATTEMPTS, type(exc).__name__, wait,
+                )
+                await asyncio.sleep(wait)
+
+    raise RuntimeError(f"Claude API failed after {_MAX_ATTEMPTS} attempts: {last_error}")
